@@ -1,0 +1,76 @@
+#######################################
+# Syntax Coloring Map For DFRobot_EG800AK
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_EG800AK	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################	
+
+setBaudRate	KEYWORD2	
+checkSignalQuality	KEYWORD2
+httpOTA	KEYWORD2
+checkSIMStatus	KEYWORD2
+attachService	KEYWORD2
+openNetwork	KEYWORD2
+send	KEYWORD2
+recv	KEYWORD2
+closeNetwork	KEYWORD2
+mqttConnect	KEYWORD2
+mqttRecv	KEYWORD2
+httpInit	KEYWORD2
+httpConnect	KEYWORD2
+httpPost	KEYWORD2
+httpGet	KEYWORD2
+httpDisconnect	KEYWORD2
+mqttDisonnect	KEYWORD2
+mqttIPStart	KEYWORD2
+mqttIPClose	KEYWORD2
+mqttUNSUB	KEYWORD2
+mqttSUB	KEYWORD2
+mqttPUB	KEYWORD2
+mqttGetIDAndTokenWithAliyun	KEYWORD2
+mqttConfig	KEYWORD2
+reset	KEYWORD2
+factoryDataReset	KEYWORD2
+getSIMtype	KEYWORD2
+setNTP	KEYWORD2
+getCLK	KEYWORD2
+getLocalIP	KEYWORD2
+queryModuleModel	KEYWORD2
+queryModuleVersion	KEYWORD2
+queryIMEI	KEYWORD2
+querySIMCardICCID	KEYWORD2
+queryFirmWare	KEYWORD2
+readLBSInformationAndTime	KEYWORD2
+FTPInit	KEYWORD2
+FTPSetPath	KEYWORD2
+FTPgetFileData	KEYWORD2
+httpOTABegin	KEYWORD2
+httpOTAWriteToFlash	KEYWORD2
+mqttConnect	KEYWORD2
+mqttDisconnect	KEYWORD2
+mqttIPClose	KEYWORD2
+mqttIPOpen	KEYWORD2
+mqttPub	KEYWORD2
+mqttSub	KEYWORD2
+recvMsg	KEYWORD2
+mqttUNSUB	KEYWORD2
+queryModuleVersionID	KEYWORD2
+querySIMCardICCID	KEYWORD2
+reset	KEYWORD2
+factoryDataReset	KEYWORD2
+setNtpRetransParam	KEYWORD2
+openNtpSynchronization	KEYWORD2
+activePDPContext	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+UDP	LITERAL1
+TCP	LITERAL1
