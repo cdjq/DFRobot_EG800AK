@@ -34,6 +34,7 @@ enum Protocol {
  */
 typedef enum
 {
+  eBaud4800  = 4800,
   eBaud9600   = 9600,
   eBaud19200  = 19200,
   eBaud38400  = 38400,
@@ -70,7 +71,21 @@ typedef enum
 class DFRobot_EG800AK : public DFRobot_SIMcore
 {
 public:
-  DFRobot_EG800AK(HardwareSerial *&serial = &Serial1, uint32_t baud = 115200);
+  /** 
+   * @fn begin
+   * @brief Initialize the module
+   * @param serial HardwareSerial object
+   * @param baud Baud rate
+   * @return true if initialization is successful, false otherwise
+   */
+  bool begin(HardwareSerial &serial = Serial1, uint32_t baud = 115200);
+  /**
+   * @fn begin
+   * @brief Initialize the module with default serial port (Serial1)
+   * @param baud Baud rate
+   * @return true if initialization is successful, false otherwise
+   */
+  bool begin(uint32_t baud);
   /**
    * @fn checkSIMStatus
    * @brief Query SIMS status

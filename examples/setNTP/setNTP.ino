@@ -11,10 +11,17 @@
 #define NTP_SERVER_IP        "pool.ntp.org"
 DFRobot_EG800AK EG800AK;
 void setup() {
+  /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
   Serial.begin(115200);
   while(!Serial);
-  EG800AK.begin(Serial1);
-  EG800AK.setBaudRate(eBaud115200);
+  EG800AK.begin();
+  Serial.println("EG800AK init......");
+  if(EG800AK.setBaudRate(eBaud115200)){                       //Set baud rate for communication with module
+    Serial.println("Baud rate set successfully");
+  }else{
+    Serial.println("Failed to set baud rate");
+    while(1);
+  }
   Serial.println("Check SIM card......");
   if(EG800AK.checkSIMStatus()){                                //Check SIM card
       Serial.println("SIM card READY");

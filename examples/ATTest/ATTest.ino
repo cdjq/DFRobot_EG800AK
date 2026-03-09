@@ -13,13 +13,17 @@
  * @version V1.0
  * @date 2026-3-5
  */
-#include "EG800AK.h"
+#include "DFRobot_EG800AK.h"
 DFRobot_EG800AK EG800AK;    
 void setup() {
+    /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
     Serial.begin(115200);
     while(!Serial);
-    EG800AK.begin(Serial1);
-    EG800AK.setBaudRate(eBaud115200);
+    Serial.println("EG800AK Init.....");
+    if(!EG800AK.begin()){
+        Serial.println("EG800AK Init failed");
+        while(1);
+    }
     Serial.println("For example, if you type AT\\r\\n, OK\\r\\n will be responsed!");
     Serial.println("Enter your AT command :");
 }

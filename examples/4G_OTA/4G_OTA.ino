@@ -16,6 +16,7 @@
 #include <DFRobot_EG800AK.h>
 #define OTA_HOST_NAME  "120.26.43.190"
 #define OTA_PORT        80
+/*This is a LED Blink Demo File*/
 #define OTA_FILE_NAME  "OTATest.ino.bin"
 
 
@@ -23,10 +24,17 @@ DFRobot_EG800AK    EG800AK;
 
 void setup() {
     int signalStrength;
+    /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
     Serial.begin(115200);
     while(!Serial);
-    Serial1.begin(115200);
-    EG800AK.begin(Serial1);
+    Serial.println("EG800AK Init........");
+    /*make sure baud rate < 921600*/
+    if(EG800AK.begin(460800)){
+        Serial.println("EG800AK init success");
+    }else{
+        Serial.println("EG800AK init failed");
+        while(1);
+    }   
 
     Serial.println("Check SIM card......");
     if(EG800AK.checkSIMStatus()){                                           //Check SIM card

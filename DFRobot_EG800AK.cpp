@@ -1,10 +1,16 @@
 #include <DFRobot_EG800AK.h>
 #include <Update.h>
-
-DFRobot_EG800AK::DFRobot_EG800AK(HardwareSerial *&serial, uint32_t baud)
+bool DFRobot_EG800AK::begin(HardwareSerial &serial, uint32_t baud)
 {
-  _serial = serial;
-  begin(*_serial, baud);
+  DFRobot_SIMcore::begin(serial, baud);
+  if(!setBaudRate((eBaudRate_t)baud)){
+    DBG("Failed to set baud rate during begin.");
+    return false;
+  }
+  return true;
+}
+bool DFRobot_EG800AK::begin(uint32_t baud) {
+    return begin(Serial1, baud);
 }
 bool  DFRobot_EG800AK::setBaudRate(eBaudRate_t rate)
 {
@@ -36,7 +42,7 @@ uint32_t DFRobot_EG800AK::_checkBaudRate(void)
   uint32_t currentBaud = 0;
   
   for(int i = 0; i < sizeof(baudsToTry)/sizeof(baudsToTry[0]); i++){
-    begin(Serial1, baudsToTry[i]);         // Update hardware baud rate
+    DFRobot_SIMcore::begin(Serial1, baudsToTry[i]);         // Update hardware baud rate
     // Clear buffer
     while(Serial1.available()) {
         Serial1.read(); 

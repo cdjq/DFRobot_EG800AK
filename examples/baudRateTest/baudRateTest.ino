@@ -23,7 +23,7 @@ void setup() {
 
 
   //Initialize the serial port connected to the EG800AK module with a default value
-  EG800AK.begin(Serial1);
+  EG800AK.begin();
   Serial.println("Setting  baud rate of the module to 921600 bps...");
   if(EG800AK.setBaudRate(eBaud921600)){
     Serial.println("Baud rate set to 921600 bps successfully.");

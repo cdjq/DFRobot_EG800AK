@@ -36,10 +36,17 @@ String readSerial(){
     }
 }
 void setup() {
+  /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
   Serial.begin(115200);
   while(!Serial);
-  EG800AK.begin(Serial1);
-  EG800AK.setBaudRate(eBaud115200);
+ 
+  Serial.println("EG800AK Init....");
+   if(EG800AK.begin()){
+    Serial.println("EG800AK init success");
+  }else{
+    Serial.println("EG800AK init failed");
+    while(1);
+  }
   Serial.println("Check SIM card......");
   if(EG800AK.checkSIMStatus()){                                //Check SIM card
       Serial.println("SIM card READY");

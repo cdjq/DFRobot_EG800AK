@@ -12,10 +12,14 @@
 DFRobot_EG800AK EG800AK;
 char *testBuf;
 void setup() {
-  Serial.begin(115200);
+ /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
+  Serial.begin(921600);
   while(!Serial);
-  Serial1.begin(115200);
-  EG800AK.begin(Serial1);
+  Serial.println("EG800AK Init.....");
+  if(!EG800AK.begin(921600)){
+      Serial.println("EG800AK Init failed");
+      while(1);
+  }
   Serial.println("Check SIM card......");
   if(EG800AK.checkSIMStatus()){                                             //Check SIM card
       Serial.println("SIM card READY");
