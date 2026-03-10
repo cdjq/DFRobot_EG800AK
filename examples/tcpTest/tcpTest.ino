@@ -36,7 +36,6 @@ String readSerial(){
     }
 }
 void setup() {
-  /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
   Serial.begin(115200);
   while(!Serial);
  
@@ -101,4 +100,5 @@ void loop() {
       delay(10);
   }
   delay(2000);
+
 }

@@ -34,7 +34,7 @@ enum Protocol {
  */
 typedef enum
 {
-  eBaud4800  = 4800,
+  eBaud4800   = 4800,
   eBaud9600   = 9600,
   eBaud19200  = 19200,
   eBaud38400  = 38400,
@@ -79,6 +79,7 @@ public:
    * @return true if initialization is successful, false otherwise
    */
   bool begin(HardwareSerial &serial = Serial1, uint32_t baud = 115200);
+
   /**
    * @fn begin
    * @brief Initialize the module with default serial port (Serial1)
@@ -86,6 +87,7 @@ public:
    * @return true if initialization is successful, false otherwise
    */
   bool begin(uint32_t baud);
+  
   /**
    * @fn checkSIMStatus
    * @brief Query SIMS status

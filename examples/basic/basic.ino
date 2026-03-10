@@ -13,10 +13,10 @@ DFRobot_EG800AK EG800AK;
 char *testBuf;
 void setup() {
  /*Please make sure  this Serial baud rate is same as the module's serial baud rate(default is 115200).*/
-  Serial.begin(921600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("EG800AK Init.....");
-  if(!EG800AK.begin(921600)){
+  if(!EG800AK.begin(115200)){
       Serial.println("EG800AK Init failed");
       while(1);
   }

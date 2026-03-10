@@ -2,6 +2,10 @@
 #include <Update.h>
 bool DFRobot_EG800AK::begin(HardwareSerial &serial, uint32_t baud)
 {
+  if(&serial != &Serial1){
+    DBG("Only Serial1 is supported for now. Please use Serial1 or use begin(uint32_t baud) instead.");
+    return false;
+  }
   DFRobot_SIMcore::begin(serial, baud);
   if(!setBaudRate((eBaudRate_t)baud)){
     DBG("Failed to set baud rate during begin.");
@@ -9,9 +13,11 @@ bool DFRobot_EG800AK::begin(HardwareSerial &serial, uint32_t baud)
   }
   return true;
 }
+
 bool DFRobot_EG800AK::begin(uint32_t baud) {
     return begin(Serial1, baud);
 }
+
 bool  DFRobot_EG800AK::setBaudRate(eBaudRate_t rate)
 {
   uint32_t currentBaud = _checkBaudRate();
@@ -351,19 +357,19 @@ char *DFRobot_EG800AK::httpPost(const char *Host ,int port,const char *jsonBody,
       jsonBody);
 
   if(totalLen <= 0 || totalLen >= (int)sizeof(httpBuf)){
-    Serial.println("[httpPost] request build failed or too long");
+    DBG("[httpPost] request build failed or too long");
     return NULL;
   }
 
   if(!check_send_cmd("AT+QISEND=0\r\n",">")){
-    Serial.println("[httpPost] wait '>' failed");
+    DBG("[httpPost] wait '>' failed");
     return NULL;
   }
 
 
   String payload = String(httpBuf) + "\x1A";
   if(!check_send_cmd(payload.c_str(),"SEND OK")){
-    Serial.println("[httpPost] SEND OK not received");
+    DBG("[httpPost] send failed");
     return NULL;
   }
 
@@ -371,7 +377,7 @@ char *DFRobot_EG800AK::httpPost(const char *Host ,int port,const char *jsonBody,
   delay(200);
   String data = get_String();
   if(data.length() == 0){
-    Serial.println("[httpPost] no response data");
+    DBG("[httpPost] no response data");
     return NULL;
   }
   
@@ -559,8 +565,6 @@ int DFRobot_EG800AK::_readBinaryTo(char *buf, int len)
 
   return revLen;
 }
-
-
 
 bool DFRobot_EG800AK::httpOTAWriteToFlash()
 { 
