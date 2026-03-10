@@ -315,7 +315,6 @@ bool DFRobot_EG800AK::mqttUNSUB(const char* topic)
    if(!check_send_cmd(cmd,"+QMTUNS: 1,1,0")) return false;
    return true;
 }
-
 bool  DFRobot_EG800AK::httpConnect(const char *Host,int port,eHttpRevMode_t mode)
 {
   char cmd[128];

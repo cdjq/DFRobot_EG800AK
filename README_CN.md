@@ -4,7 +4,7 @@
 ## 概述
 DFRobot_EG800AK 是一款 EG800AK 4G 通信模块，适用于 DFRobot EDGE101 主控板。该库封装了模块的 AT 指令，支持 4G 网络通信、HTTP/MQTT 协议、OTA 升级、NTP 校时等多种功能，方便用户快速集成 4G 通信能力到物联网项目中。
 
-![正面svg效果图](./resources/images/64x8DTOF.png)
+![正面svg效果图]
 ## 产品链接 (https://www.dfrobot.com.cn/)
 
 ```text
@@ -26,6 +26,7 @@ SKU: DFR0886
 
 
 ## 安装
+下载完EDGE101的SDK后，打开4G_MODULE例程即可
 
 ### Arduino 库安装
 
@@ -67,8 +68,8 @@ typedef enum
 typedef enum
 {
   eBufferMode      = 0, // 缓冲区模式(可主动发送指令请求一定数量数据，OTA升级使用了这种模式)
-  ePassthroughMode = 1, // 透传模式(一请求，数据会全部传回来)
-  eURCMode         = 2, // URC 模式
+  ePassthroughMode = 1, // 直传模式(一请求，数据会全部传回来)
+  eTransparentMode = 2, // 透传模式
 }eHttpRevMode_t;
 
 /**

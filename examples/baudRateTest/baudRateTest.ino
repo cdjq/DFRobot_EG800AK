@@ -5,7 +5,7 @@
  *        1. Auto-detect the module's current baud rate.
  *        2. Change the module and ESP32 baud rate to the new value and check.
  *        3. Enter AT transparent transmission mode in `loop()` for further testing.
- * @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @copyright  Copyright (c) 2026 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license The MIT License (MIT)
  * @author [PLELES] (feng.yang@dfrobot.com)
  * @version V1.0

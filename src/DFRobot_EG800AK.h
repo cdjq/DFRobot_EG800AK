@@ -24,8 +24,8 @@
  * @brief Network protocol
  */
 enum Protocol {
-    TCP    = 1,
-    UDP    = 2,
+    TCP    = 1,               /**< TCP */
+    UDP    = 2,               /**< UDP */
 };
 
 /**
@@ -34,16 +34,16 @@ enum Protocol {
  */
 typedef enum
 {
-  eBaud4800   = 4800,
-  eBaud9600   = 9600,
-  eBaud19200  = 19200,
-  eBaud38400  = 38400,
-  eBaud57600  = 57600,
-  eBaud115200 = 115200,
-  eBaud230400 = 230400,
-  eBaud460800 = 460800,
-  eBaud921600 = 921600,
-  eBaud1000000 = 1000000,
+  eBaud4800   = 4800,         /**< baudRate 4800 bps */
+  eBaud9600   = 9600,         /**< baudRate 9600 bps */
+  eBaud19200  = 19200,        /**< baudRate 19200 bps */
+  eBaud38400  = 38400,        /**< baudRate 38400 bps */
+  eBaud57600  = 57600,        /**< baudRate 57600 bps */
+  eBaud115200 = 115200,       /**< baudRate 115200 bps */
+  eBaud230400 = 230400,       /**< baudRate 230400 bps */
+  eBaud460800 = 460800,       /**< baudRate 460800 bps */
+  eBaud921600 = 921600,       /**< baudRate 921600 bps */
+  eBaud1000000 = 1000000,     /**< baudRate 1000000 bps */
 }eBaudRate_t;
 
 /**
@@ -52,9 +52,9 @@ typedef enum
  */
 typedef enum
 {
-  eBufferMode      = 0,
-  ePassthroughMode = 1,
-  eURCMode         = 2,
+  eBufferMode      = 0,        //**< buffer mode */
+  ePassthroughMode = 1,        //**< passthrough mode */
+  eTransparentMode = 2,        //**< transparent mode */ 
 }eHttpRevMode_t;
 
 /**
@@ -63,9 +63,9 @@ typedef enum
  */
 typedef enum
 {
-  eQos0 = 0,
-  eQos1 = 1,
-  eQos2 = 2,
+  eQos0 = 0,                  /**< QoS 0 */
+  eQos1 = 1,                  /**< QoS 1 */           
+  eQos2 = 2,                  /**< QoS 2 */ 
 }eQos_t;
 
 class DFRobot_EG800AK : public DFRobot_SIMcore
@@ -87,7 +87,7 @@ public:
    * @return true if initialization is successful, false otherwise
    */
   bool begin(uint32_t baud);
-  
+
   /**
    * @fn checkSIMStatus
    * @brief Query SIMS status
@@ -411,7 +411,6 @@ private:
    */
   bool _checkModuleWorking(void);
 
-  HardwareSerial *_serial;
   uint16_t mqtt_msg_id = 1;
   uint32_t _contentLength = 0;
   

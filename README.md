@@ -26,7 +26,7 @@ SKU: DFR0886
 This library provides comprehensive software support for the EG800AK 4G module. With simple APIs, users can achieve network connection, data transmission, remote firmware upgrade, and time synchronization. It is ideal for IoT applications such as remote monitoring, data acquisition, and smart device networking.
 
 ## Installation
-
+To use this library, you need to install the Arduino IDE and the EDGE101 SDK. Then, you can import the library into your project.
 ## Methods
 ### Arduino C++ Library
 
@@ -48,7 +48,7 @@ enum Protocol {
  */
 typedef enum
 {
-  eBaud4800  = 4800,
+  eBaud4800   = 4800,
   eBaud9600   = 9600,
   eBaud19200  = 19200,
   eBaud38400  = 38400,
@@ -68,7 +68,7 @@ typedef enum
 {
   eBufferMode      = 0,
   ePassthroughMode = 1,
-  eURCMode         = 2,
+  eTransparentMode = 2,        
 }eHttpRevMode_t;
 
 /**
